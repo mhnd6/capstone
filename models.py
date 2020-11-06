@@ -16,7 +16,7 @@ def setup_db(app, database_path=database_path):
     db.app = app
     db.init_app(app)
     migrate.init_app(app, db)
-    db.create_all()
+    # db.create_all()
 
 
 class Movies(db.Model):
