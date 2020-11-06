@@ -1,11 +1,13 @@
 from sqlalchemy import Column, String, create_engine, Integer
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 import json
 import os
 
 os.environ['DATABASE_PATH'] = 'postgres://postgres:admin@localhost:5432/capstone'
 database_path = os.environ['DATABASE_PATH']
 db = SQLAlchemy()
+migrate = Migrate()
 
 
 def setup_db(app, database_path=database_path):
@@ -13,6 +15,7 @@ def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
+    migrate.init_app(app, db)
     db.create_all()
 
 
