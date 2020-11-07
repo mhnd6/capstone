@@ -4,10 +4,16 @@ from flask_migrate import Migrate
 import json
 import os
 
+# set my environment variables
 os.environ['DATABASE_PATH'] = 'postgres://xvghnwhkvpsmum:9c510ebc2170457c8eac775fa5a7505bc1844ebf3b7450142846152010454a80@ec2-184-73-249-9.compute-1.amazonaws.com:5432/ddfamoh8uvbp4p'
 database_path = os.environ['DATABASE_PATH']
 db = SQLAlchemy()
 migrate = Migrate()
+
+'''
+setup_db(app)
+    binds a flask application and a SQLAlchemy service
+'''
 
 
 def setup_db(app, database_path=database_path):
@@ -17,6 +23,12 @@ def setup_db(app, database_path=database_path):
     db.init_app(app)
     migrate.init_app(app, db)
     db.create_all()
+
+
+'''
+Movies
+a persistent Movies entity, extends the base SQLAlchemy Model
+'''
 
 
 class Movies(db.Model):
@@ -29,12 +41,37 @@ class Movies(db.Model):
         self.title = title
         self.release_date = release_date
 
+    '''
+    insert()
+        inserts a new model into a database
+        EXAMPLE
+            movie = Movies(title=req_title, release_date=req_recipe)
+            movie.insert()
+    '''
+
     def insert(self):
         db.session.add(self)
         db.session.commit()
 
+    '''
+    update()
+        updates a new model into a database
+        EXAMPLE
+            movie = Movies.query.get(2)
+            movie.title = 'Hi'
+            movie.update()
+    '''
+
     def update(self):
         db.session.commit()
+
+    '''
+    delete()
+        deletes a new model into a database
+        EXAMPLE
+            movie = Movies.query.get(2)
+            movie.delete()
+    '''
 
     def delete(self):
         db.session.delete(self)
@@ -49,6 +86,12 @@ class Movies(db.Model):
         }
 
 
+'''
+Actors
+a persistent Actors entity, extends the base SQLAlchemy Model
+'''
+
+
 class Actors(db.Model):
     __tablename__ = 'actors'
     id = Column(Integer, primary_key=True)
@@ -61,12 +104,36 @@ class Actors(db.Model):
         self.age = age
         self.gender = gender
 
+    '''
+    insert()
+        inserts a new model into a database
+        EXAMPLE
+            actor = Actors(name=ahmed, age=50, gender=male)
+            actor.insert()
+    '''
+
     def insert(self):
         db.session.add(self)
         db.session.commit()
 
+    '''
+    update()
+        updates a new model into a database
+        EXAMPLE
+            actor = Actors(name=ahmed, age=50, gender=male)
+            actor.update()
+    '''
+
     def update(self):
         db.session.commit()
+
+    '''
+    delete()
+        deletes a new model into a database
+        EXAMPLE
+            actor = Actors.query.get(2)
+            actor.delete()
+    '''
 
     def delete(self):
         db.session.delete(self)

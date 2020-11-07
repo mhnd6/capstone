@@ -25,3 +25,11 @@ curl --header "Content-Type: application/json" \
   --request PATCH \
   --data '{"title":"FAST9","release_date":"2020"}' \
   http://127.0.0.1:5000/movies/2
+
+============================================
+
+https://capstone-mhnd.herokuapp.com/ | https://git.heroku.com/capstone-mhnd.git
+
+=============================================
+
+postgres://mrwuebkveizbls:17d7982999cff49db079db57ffbaf96ababfb683ffe68bf9bbb01185e95f04ea@ec2-34-231-56-78.compute-1.amazonaws.com:5432/d536r5dqfsb45s

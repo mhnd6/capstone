@@ -1,0 +1,683 @@
+{
+	"info": {
+		"_postman_id": "365bc295-8c24-430d-bf57-35a621e974c4",
+		"name": "Capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Assistant",
+			"item": [
+				{
+					"name": "GET actors",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Assistint}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET movies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Assistint}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c9186d6a-577f-44ab-8d1c-0db79270b377",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Assistint}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Anime\",\r\n    \"release_date\":\"2020\"\r\n}"
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Producer",
+			"item": [
+				{
+					"name": "GET actors",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET movies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEL movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/movies/2",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST actors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"kiki\",\r\n    \"age\": 30,\r\n    \"gender\": \"Male\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEL actors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/actors/3",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH actors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"chack\",\r\n    \"age\": 20,\r\n    \"gender\": \"Male\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/actors/3",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"release_date\":\"1999\"\r\n}"
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Producer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Anime\",\r\n    \"release_date\":\"2020\"\r\n}"
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Director",
+			"item": [
+				{
+					"name": "GET actors",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Director}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET movies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Director}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c9186d6a-577f-44ab-8d1c-0db79270b377",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Director}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Anime\",\r\n    \"release_date\":\"2020\"\r\n}"
+						},
+						"url": {
+							"raw": "https://capstone-mhnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"capstone-mhnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1ad0cadd-2fee-4db0-a541-5a91c4ec5094",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1ba06da0-22b1-4e9a-a329-0574db714e4f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c0ce7f4f-cc3f-4dd3-95d8-d2363f0a0700",
+			"key": "Producer",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndxSURuU1BILVJ4YzVvTi1oRHVfZyJ9.eyJpc3MiOiJodHRwczovL21obmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmYTMyMjYxNzA5MjA4MDA2ZWI1ZDdhYiIsImF1ZCI6ImNhc3RpbmdfYWdlbmN5IiwiaWF0IjoxNjA0NzQ0NzI0LCJleHAiOjE2MDQ3NTE5MjQsImF6cCI6IjJkaHBpd09aUTFoVXlXZldhenRJdHBuNUIwZVhpYzA2Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.o6M8UuvifRjL94dnPI9dIgikC4989NUgue4635Qk8vaFWqfmjMSgeocJ0nxAX2jNmClaUvEqUqLFuZm9NldoTXocnORhkl4CPLxwCPCTD-77nuhRUBa00yPrdmEzr0p7D60lMrnr3dwhdlq4jbinl-vH5tKRlg1jqR3m2uuBbbjE7hllVEn6QK3-wy3tQtiaMYTEXn87qsUJ2ZNV0qqbDgPc8QzrLTuAc2ZvcaIxg9Q8GBcgW9fMgCq0VAzlKcv6aj7s12z3HMs75I5ertOLaCVe5-z0bw3IrqkCGT_knPQJyyZ3ekdunauoQx8PKWiSDl2K7UZ-YzEfQ0gloacbMA"
+		},
+		{
+			"id": "59dd72a9-f149-4e81-b9a0-bcc6c615122e",
+			"key": "Assistint",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndxSURuU1BILVJ4YzVvTi1oRHVfZyJ9.eyJpc3MiOiJodHRwczovL21obmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmYTMzMTliODMyNjI4MDA2YjhjMjc0NCIsImF1ZCI6ImNhc3RpbmdfYWdlbmN5IiwiaWF0IjoxNjA0NzQ0NjU5LCJleHAiOjE2MDQ3NTE4NTksImF6cCI6IjJkaHBpd09aUTFoVXlXZldhenRJdHBuNUIwZVhpYzA2Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.BS78CnrulMteRY3Ee2KlPOamT3-rwRhxYWcYvnF0J1tBUQ38pkdei1B6VXpMQAB3IhXeUKCWjA66IRO9M5LuSCixMZEG79KMEAtZ_Wnt7nd0_y8ByAkwWKMUZsusVSBbSe3iQbo3T6oJPfWPVncx_dmqbcno5ghGsjQo-A1eEsm3bIYKVX0NDgz39LhzWSgps6aCtibaywTKS04PERA_g0IgSxKILObCX4_u2_xxletO1-CkwknXSErogbQ6S4MrJE1Pz_zcx6xf4Po6Y7c4jMfutmvtmT3uWwUnSyAHHTtciku-4A3PR4qKoNK6WwQsqEHubMN0ME0pgm7POV4W1Q"
+		},
+		{
+			"id": "87704e3c-30b0-45df-960d-2901e588b269",
+			"key": "Director",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndxSURuU1BILVJ4YzVvTi1oRHVfZyJ9.eyJpc3MiOiJodHRwczovL21obmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmYTMzOTMwNzViMmY2MDA2OWI1YWJiOCIsImF1ZCI6ImNhc3RpbmdfYWdlbmN5IiwiaWF0IjoxNjA0NzQ0Nzk3LCJleHAiOjE2MDQ3NTE5OTcsImF6cCI6IjJkaHBpd09aUTFoVXlXZldhenRJdHBuNUIwZVhpYzA2Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyJdfQ.zO9N19t8dzDXFC87wv1BekMoy1Y7BgYWZE1dxOVGFgrCEeCyTp61nHipdU57zBkGRZDoLkEUU-swu1rl81Wp-I0F4VjemqPBnTUBMEbvJC4ZGBQzKwTzZd_SBTbWfssIX9yAEWvgWzSABkEQXLF4wUFSK2algx5HiIlfaYyP8N6XxCbAj1_aVIzEPe8y7PRzOrp7mFa12VZwJgnWO4HYWk_L_0EsglyHDjr-Nmz0KefDhT43dcRxdoKaFl6KxA8D4XlhPGq69VAisW7J4Betb05KUdnOl4l9FYS-gy7UN-mLkuwerdjObzmvNnC4Ng5waYVUdsrIImaewf_7zvFGLQ"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

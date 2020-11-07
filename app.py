@@ -12,10 +12,20 @@ def create_app(test_config=None):
     setup_db(app)
     CORS(app)
 
+    '''
+    / endpoint to make sure my app is running
+    '''
     @app.route('/')
     def home():
         return 'App is running'
 
+    '''
+    GET /actors
+        it requires authentication
+        it contain the actor.format() data representation and total actors
+    returns status code 200 and json {"success": True, "actors": actors, "total":total_actors} where actors is the list of actors
+        or appropriate status code indicating reason for failure
+    '''
     @app.route('/actors')
     @requires_auth('get:actors')
     def get_actors(payload):
@@ -32,6 +42,13 @@ def create_app(test_config=None):
         except Exception:
             abort(404)
 
+    '''
+    DELETE /actors
+        it requires authentication
+        it takes the actor id 
+    returns status code 200 and json {"success": True, "deleted": actor id} 
+        or appropriate status code indicating reason for failure
+    '''
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
     @requires_auth('delete:actors')
     def delete_actor(payload, actor_id):
@@ -46,6 +63,13 @@ def create_app(test_config=None):
             "deleted": selection.id,
         }), 200
 
+    '''
+    POST /actors
+        it requires authentication
+        it takes the actor details data 
+    returns status code 200 and json {"success": True, "created": actor id} 
+        or appropriate status code indicating reason for failure
+    '''
     @app.route('/actors', methods=['POST'])
     @requires_auth('post:actors')
     def create_actor(payload):
@@ -71,6 +95,13 @@ def create_app(test_config=None):
             "created": newActor.id
         }), 200
 
+    '''
+    PATCH /actors
+        it requires authentication
+        it takes the actor id and data
+    returns status code 200 and json {"success": True, "actor": actor} 
+        or appropriate status code indicating reason for failure
+    '''
     @app.route("/actors/<int:actor_id>", methods=['PATCH'])
     @requires_auth('patch:actors')
     def update_actor(payload, actor_id):
@@ -92,6 +123,13 @@ def create_app(test_config=None):
             "actor": actor.format()
         }), 200
 
+    '''
+    GET /movies
+        it requires authentication
+        it contain the movie.format() data representation and total movies
+    returns status code 200 and json {"success": True, "movies": movies, "total":total_movies} where movies is the list of movies
+        or appropriate status code indicating reason for failure
+    '''
     @app.route("/movies")
     @requires_auth('get:movies')
     def get_movies(payload):
@@ -108,6 +146,13 @@ def create_app(test_config=None):
             "total": total_movies
         }), 200
 
+    '''
+    DELETE /movies
+        it requires authentication
+        it takes the movies id 
+    returns status code 200 and json {"success": True, "deleted": movie id} 
+        or appropriate status code indicating reason for failure
+    '''
     @app.route("/movies/<int:movie_id>", methods=['DELETE'])
     @requires_auth('delete:movies')
     def delete_movie(payload, movie_id):
@@ -123,6 +168,13 @@ def create_app(test_config=None):
             "deleted": selection.id,
         }), 200
 
+    '''
+    POST /movies
+        it requires authentication
+        it takes the movie details data 
+    returns status code 200 and json {"success": True, "created": movie id} 
+        or appropriate status code indicating reason for failure
+    '''
     @app.route('/movies', methods=['POST'])
     @requires_auth('post:movies')
     def create_movie(payload):
@@ -146,6 +198,13 @@ def create_app(test_config=None):
             "created": newMovie.id
         }), 200
 
+    '''
+    PATCH /movies
+        it requires authentication
+        it takes the movie id and data
+    returns status code 200 and json {"success": True, "movie": movie} 
+        or appropriate status code indicating reason for failure
+    '''
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
     @requires_auth('patch:movies')
     def update_movie(payload, movie_id):
@@ -167,6 +226,11 @@ def create_app(test_config=None):
             "movie": selection.format()
         }), 200
 
+    # handling errors
+    '''
+    error handler for 400
+    
+    '''
     @app.errorhandler(400)
     def bad_request(error):
         return jsonify({
@@ -175,6 +239,10 @@ def create_app(test_config=None):
             'message': 'bad request'
         }), 400
 
+    '''
+    error handler for 404
+    
+    '''
     @app.errorhandler(404)
     def bad_request(error):
         return jsonify({
@@ -183,6 +251,9 @@ def create_app(test_config=None):
             'message': 'nor found'
         }), 404
 
+    '''
+    Example error handling for unprocessable entity
+    '''
     @app.errorhandler(422)
     def bad_request(error):
         return jsonify({
