@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 import json
 import os
 
-os.environ['DATABASE_PATH'] = 'postgres://postgres:admin@localhost:5432/capstone'
+os.environ['DATABASE_PATH'] = 'postgres://kfnfjvoufgjsms:d06cc6e2c21a15a290580c83f7421cdf9738e37e2f3f59af5d3c3a6c254a6da0@ec2-54-224-124-241.compute-1.amazonaws.com:5432/daec96hp8b5qo3'
 database_path = os.environ['DATABASE_PATH']
 db = SQLAlchemy()
 migrate = Migrate()
