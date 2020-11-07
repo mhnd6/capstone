@@ -5,8 +5,9 @@ import json
 import os
 
 # set my environment variables
-os.environ['DATABASE_PATH'] = 'postgres://xvghnwhkvpsmum:9c510ebc2170457c8eac775fa5a7505bc1844ebf3b7450142846152010454a80@ec2-184-73-249-9.compute-1.amazonaws.com:5432/ddfamoh8uvbp4p'
-database_path = os.environ['DATABASE_PATH']
+# os.environ['DATABASE_PATH'] = 'postgres://xvghnwhkvpsmum:9c510ebc2170457c8eac775fa5a7505bc1844ebf3b7450142846152010454a80@ec2-184-73-249-9.compute-1.amazonaws.com:5432/ddfamoh8uvbp4p'
+database_path = os.environ.get('DATABASE_PATH')
+print(database_path, flush=True)
 db = SQLAlchemy()
 migrate = Migrate()
 

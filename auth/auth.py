@@ -6,9 +6,9 @@ from urllib.request import urlopen
 import os
 
 
-AUTH0_DOMAIN = os.getenv('AUTH0_DOMAIN', 'mhnd.us.auth0.com')
-ALGORITHMS = os.getenv('ALGORITHMS', ['RS256'])
-API_AUDIENCE = os.getenv('API_AUDIENCE', 'casting_agency')
+AUTH0_DOMAIN = os.getenv('AUTH0_DOMAIN')
+ALGORITHMS = os.getenv('ALGORITHMS')
+API_AUDIENCE = os.getenv('API_AUDIENCE')
 
 
 # AuthError Exception

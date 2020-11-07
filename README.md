@@ -1,5 +1,9 @@
 # Casting Agency API
 
+## Motivation
+
+In this Capstone project, I'll be challenged to use all of the concepts and the skills taught in the courses to build an API from start to finish and host it. consider this an opportunity to confirm that my ability with that skill. For those that I feel less confident in, this is an opportunity to reinforce those skills and walk away very confident in them.
+
 ## Full Stack Nano - Final Project (Capstone)
 
 An API responsible for managing Casting Agency company
