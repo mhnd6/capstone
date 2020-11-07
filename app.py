@@ -218,7 +218,7 @@ def create_app(test_config=None):
                 'release_date', selection.release_date)
 
             selection.update()
-        except:
+        except Exception:
             abort(404)
 
         return jsonify({
@@ -279,4 +279,4 @@ def create_app(test_config=None):
 app = create_app()
 
 if __name__ == '__main__':
-    app.run(port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
