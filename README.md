@@ -3,7 +3,7 @@
 ## Full Stack Nano - Final Project (Capstone)
 
 An API responsible for managing Casting Agency company
-Wich allows them to assign actors or create movies and retrieve them
+which allows them to assign actors or create movies and retrieve them
 The application must:
 
 1. Do CRUD operations on both actors and movies.
@@ -84,7 +84,7 @@ Setting the `FLASK_ENV` variable to `development` will detect file changes and r
 ### Getting Started
 
 - Base URL: At present this app doesn't have frontend. The backend app is hosted at the default, https://capstone-mhnd.herokuapp.com/.
-- Authentication: This application require authentication, the tokens provided inside postman collection.
+- Authentication: This application require authentication, the tokens provided inside postman collection file.
 
 ### Error Handling
 
